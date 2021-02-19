@@ -18,7 +18,11 @@ const cartItemsFromStorage = localStorage.getItem("cartItem")
   ? JSON.parse(localStorage.getItem("cartItem"))
   : [];
 
-const initialState = {};
+const initialState = {
+  cart: {
+    cartItems: cartItemsFromStorage,
+  },
+};
 
 const middleware = [thunk];
 
