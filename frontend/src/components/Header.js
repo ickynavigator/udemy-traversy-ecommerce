@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
 import { logout } from "../actions/userAction";
 
-const Header = () => {
+const Header = ({ location }) => {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
@@ -11,6 +11,7 @@ const Header = () => {
 
   const logoutHandler = () => {
     dispatch(logout());
+    window.location.reload();
   };
 
   return (
