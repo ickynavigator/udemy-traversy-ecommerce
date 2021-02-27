@@ -57,7 +57,7 @@ const getOrderById = asyncHandler(async (req, res) => {
 // @desc   Update order to paid
 // @route  PUT /api/orders/:id/pay
 // @access Private
-const getOrderById = asyncHandler(async (req, res) => {
+const updateOrderToPaid = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id);
 
   if (order) {
@@ -79,4 +79,4 @@ const getOrderById = asyncHandler(async (req, res) => {
   }
 });
 
-export { addOrderItems, getOrderById, getOrderById };
+export { addOrderItems, getOrderById, updateOrderToPaid };
