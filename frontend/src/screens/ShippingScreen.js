@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import FormContainer from "../components/FormContainer";
@@ -22,7 +22,6 @@ const ShippingScreen = ({ history }) => {
     history.push("/payment");
   };
 
-  useEffect(() => {}, []);
   return (
     <FormContainer>
       <CheckoutSteps step1 step2 />
