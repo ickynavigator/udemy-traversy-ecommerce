@@ -5,7 +5,7 @@ import { LinkContainer } from "react-router-bootstrap";
 
 import Loader from "../components/Loader";
 import Message from "../components/Message";
-import { getUserDetails, updateUserProfile } from "../actions/userAction";
+import { getUserDetails, updateUserProfile } from "../actions/userActions";
 import { listMyOrders } from "../actions/orderActions";
 
 const ProfileScreen = ({ location, history }) => {

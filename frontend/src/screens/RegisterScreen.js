@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import Loader from "../components/Loader";
 import Message from "../components/Message";
-import { register } from "../actions/userAction";
+import { register } from "../actions/userActions";
 import FormContainer from "../components/FormContainer";
 
 const RegisterScreen = ({ location, history }) => {

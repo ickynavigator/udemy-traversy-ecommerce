@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import Loader from "../components/Loader";
 import Message from "../components/Message";
-import { login } from "../actions/userAction";
+import { login } from "../actions/userActions";
 import FormContainer from "../components/FormContainer";
 
 const LoginScreen = ({ location, history }) => {
