@@ -14,18 +14,17 @@ import uploadRoutes from "./routes/uploadRoutes.js";
 dotenv.config();
 connectDB();
 const app = express();
+const PORT = process.env.PORT || 5000;
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
+  app.get("/", (req, res) => {
+    res.send("API IS RUNNING...");
+  });
 }
 
-const PORT = process.env.PORT || 5000;
-
-app.get("/", (req, res) => {
-  res.send("API IS RUNNING...");
-});
-
 app.use(express.json());
+
 app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/orders", orderRoutes);
@@ -37,6 +36,14 @@ app.get("/api/config/paypal", (req, res) =>
 
 const folder = path.resolve();
 app.use("/uploads", express.static(path.join(folder, "/uploads")));
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(folder, "/frontend/build")));
+
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
+  );
+}
 
 app.use(notFound);
 app.use(errorHandler);
